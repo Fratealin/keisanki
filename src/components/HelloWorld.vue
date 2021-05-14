@@ -43,7 +43,7 @@
 
 
     <br>
-    <button v-on:click="makenumbertwo(0)">0</button>
+    <button v-on:click="makenumbertwo(0)">{{nums[0]}}</button>
     <button v-on:click="makenumbertwo(1)">1</button>
     <button v-on:click="makenumbertwo(2)">2</button>
     <button v-on:click="makenumbertwo(3)">3</button>
@@ -55,7 +55,7 @@
     <button v-on:click="makenumbertwo(8)">8</button>
     <button v-on:click="makenumbertwo(9)">9</button>
     <button v-on:click="makenumbertwo(0)">0</button>
-    <button >C</button>
+    <button v-on:click="clearscreen()">C</button>
 
 
 
@@ -75,7 +75,8 @@ export default {
       numbertwo: null,
       operator: "",
       answer: 0,
-      test: 100
+      test: 100,
+      nums: [33,1,2]
       
 
     }
@@ -93,7 +94,13 @@ export default {
     },
     makenumbertwo: function(thisnum) {
      this.numbertwo = thisnum;
+    },
+    clearscreen: function() {
+     this.numbertwo = null;
+     this.numberone = null;
+     this.operator = "";
     }
+
     
     },
 computed: {

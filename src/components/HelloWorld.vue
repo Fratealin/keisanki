@@ -21,18 +21,18 @@
     Second number: <input v-model.number="numbertwo" type="number">
 
     <div>
-    <button v-on:click="makenumberone(0)">0</button>
-    <button v-on:click="makenumberone(1)">1</button>
-    <button v-on:click="makenumberone(2)">2</button>
-    <button v-on:click="makenumberone(3)">3</button>
-    <button v-on:click="makenumberone(4)">4</button>
-    <button v-on:click="makenumberone(5)">5</button>
+    <button v-on:click="makenumberone(0)">{{nums[0]}}</button>
+    <button v-on:click="makenumberone(1)">{{nums[1]}}</button>
+    <button v-on:click="makenumberone(2)">{{nums[2]}}</button>
+    <button v-on:click="makenumberone(3)">{{nums[3]}}</button>
+    <button v-on:click="makenumberone(4)">{{nums[4]}}</button>
+    <button v-on:click="makenumberone(5)">{{nums[5]}}</button>
     <br>
-    <button v-on:click="makenumberone(6)">6</button>
-    <button v-on:click="makenumberone(7)">7</button>
-    <button v-on:click="makenumberone(8)">8</button>
-    <button v-on:click="makenumberone(9)">9</button>
-    <button v-on:click="makenumberone(0)">0</button>
+    <button v-on:click="makenumberone(6)">{{nums[6]}}</button>
+    <button v-on:click="makenumberone(7)">{{nums[7]}}</button>
+    <button v-on:click="makenumberone(8)">{{nums[8]}}</button>
+    <button v-on:click="makenumberone(9)">{{nums[9]}}</button>
+    <button v-on:click="makenumberone(0)">{{nums[0]}}</button>
     <br>
     <button v-on:click="makeoperator('+')">+</button>
     <button v-on:click="makeoperator('-')">-</button>
@@ -44,17 +44,17 @@
 
     <br>
     <button v-on:click="makenumbertwo(0)">{{nums[0]}}</button>
-    <button v-on:click="makenumbertwo(1)">1</button>
-    <button v-on:click="makenumbertwo(2)">2</button>
-    <button v-on:click="makenumbertwo(3)">3</button>
-    <button v-on:click="makenumbertwo(4)">4</button>
-    <button v-on:click="makenumbertwo(5)">5</button>
+    <button v-on:click="makenumbertwo(1)">{{nums[1]}}</button>
+    <button v-on:click="makenumbertwo(2)">{{nums[2]}}</button>
+    <button v-on:click="makenumbertwo(3)">{{nums[3]}}</button>
+    <button v-on:click="makenumbertwo(4)">{{nums[4]}}</button>
+    <button v-on:click="makenumbertwo(5)">{{nums[5]}}</button>
     <br>
-    <button v-on:click="makenumbertwo(6)">6</button>
-    <button v-on:click="makenumbertwo(7)">7</button>
-    <button v-on:click="makenumbertwo(8)">8</button>
-    <button v-on:click="makenumbertwo(9)">9</button>
-    <button v-on:click="makenumbertwo(0)">0</button>
+    <button v-on:click="makenumbertwo(6)">{{nums[6]}}</button>
+    <button v-on:click="makenumbertwo(7)">{{nums[7]}}</button>
+    <button v-on:click="makenumbertwo(8)">{{nums[8]}}</button>
+    <button v-on:click="makenumbertwo(9)">{{nums[9]}}</button>
+    <button v-on:click="makenumbertwo(0)">{{nums[0]}}</button>
     <button v-on:click="clearscreen()">C</button>
 
 
@@ -76,7 +76,7 @@ export default {
       operator: "",
       answer: 0,
       test: 100,
-      nums: [33,1,2]
+      nums: ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
       
 
     }

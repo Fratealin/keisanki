@@ -1,32 +1,65 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <h1>{{numberone}} {{operator}} {{numbertwo}} equals
+        
+        <span v-if="operator == '+'" > {{add}}</span>
+        <span v-else-if="operator == '-'"> {{minus}}</span>
+        <span v-else-if="operator == '*'"> {{multiply}}</span>
+        <span v-else-if="operator == '/'"> {{divide}}</span>
+        <span v-else-if="operator == '%'"> {{modulus}}</span>
+
+
+    </h1>
+    <span>
+  
+    </span>
+
+
+
+    First number: <input v-model.number="numberone" type="number">
+    Operator: <input v-model="operator"/>
+    Second number: <input v-model.number="numbertwo" type="number">
+
+    <div>
+    <button v-on:click="makenumberone(0)">0</button>
+    <button v-on:click="makenumberone(1)">1</button>
+    <button v-on:click="makenumberone(2)">2</button>
+    <button v-on:click="makenumberone(3)">3</button>
+    <button v-on:click="makenumberone(4)">4</button>
+    <button v-on:click="makenumberone(5)">5</button>
+    <br>
+    <button v-on:click="makenumberone(6)">6</button>
+    <button v-on:click="makenumberone(7)">7</button>
+    <button v-on:click="makenumberone(8)">8</button>
+    <button v-on:click="makenumberone(9)">9</button>
+    <button v-on:click="makenumberone(0)">0</button>
+    <br>
+    <button v-on:click="makeoperator('+')">+</button>
+    <button v-on:click="makeoperator('-')">-</button>
+    <button v-on:click="makeoperator('/')">/</button>
+    <button v-on:click="makeoperator('*')">*</button>
+    <button v-on:click="makeoperator('%')">modulus</button>
+
+
+
+    <br>
+    <button v-on:click="makenumbertwo(0)">0</button>
+    <button v-on:click="makenumbertwo(1)">1</button>
+    <button v-on:click="makenumbertwo(2)">2</button>
+    <button v-on:click="makenumbertwo(3)">3</button>
+    <button v-on:click="makenumbertwo(4)">4</button>
+    <button v-on:click="makenumbertwo(5)">5</button>
+    <br>
+    <button v-on:click="makenumbertwo(6)">6</button>
+    <button v-on:click="makenumbertwo(7)">7</button>
+    <button v-on:click="makenumbertwo(8)">8</button>
+    <button v-on:click="makenumbertwo(9)">9</button>
+    <button v-on:click="makenumbertwo(0)">0</button>
+
+
+
+
+    </div>
   </div>
 </template>
 
@@ -35,24 +68,63 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data() {
+    return {
+      numberone: null,
+      numbertwo: null,
+      operator: "",
+      answer: 0,
+      test: 100
+      
+
+    }
+  },
+  methods:{
+    Add: function () {
+      console.log("add");
+      
+    },
+    makenumberone: function(thisnum) {
+     this.numberone = thisnum;
+    },
+    makeoperator: function(thisoperator) {
+      this.operator = thisoperator;
+    },
+    makenumbertwo: function(thisnum) {
+     this.numbertwo = thisnum;
+    }
+    
+    },
+computed: {
+      add: function () {
+        return this.numberone + this.numbertwo;
+      },
+
+      minus: function () {
+        return this.numberone - this.numbertwo;
+      },
+
+      multiply: function () {
+        return this.numberone * this.numbertwo;
+      },
+
+      divide: function () {
+        return this.numberone / this.numbertwo;
+      },
+
+      modulus: function () {
+        return this.numberone % this.numbertwo;
+      }
+
+
+
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+button {font-size: 20px;}
+
 </style>

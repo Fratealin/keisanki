@@ -55,7 +55,7 @@
     <button v-on:click="makenumbertwo(8)">8</button>
     <button v-on:click="makenumbertwo(9)">9</button>
     <button v-on:click="makenumbertwo(0)">0</button>
-
+    <button >C</button>
 
 
 

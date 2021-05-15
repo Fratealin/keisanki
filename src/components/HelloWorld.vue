@@ -79,7 +79,6 @@ Now try and make the answer below using the calculator above<br>(only works with
 
 
 
-
     </div>
   </div>
 </template>
@@ -194,9 +193,14 @@ export default {
 
     },
     makewordlist: function() {
-      this.wordlist = this.wordsinput.split(" ");
-      this.wordsinput = ""
-      this.selection = this.wordlist[Math.floor(Math.random() * this.wordlist.length)]
+      if (this.wordsinput != ""){
+
+          
+          this.wordlist = this.wordsinput.split(" ");
+          this.wordsinput = ""
+      }
+                this.selection = this.wordlist[Math.floor(Math.random() * this.wordlist.length)]
+
 
       
     },

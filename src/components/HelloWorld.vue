@@ -1,5 +1,8 @@
 <template>
   <div class="hello">
+<button class = "small" v-on:click="lang('rom')">Romanian</button>
+<button class = "small" v-on:click="lang('zh')">Chinese</button>
+<button class = "small" v-on:click="lang('eng')">English</button>
 
 
     <h1>{{numberone}} {{operator}} {{numbertwo}} equals
@@ -58,7 +61,7 @@ Now try and make the answer below using the calculator above<br>(only works with
     Input here: 
     <br>
         <button v-on:click="checkmultiply()">check multiplication</button>
-        <button v-on:click="checkadd()">check add</button>{{iscorrect}}
+        <button v-on:click="checkadd()">check add</button><h2>{{iscorrect}}</h2>
 
         <br>
 
@@ -114,6 +117,17 @@ export default {
     }
   },
   methods:{
+
+    lang: function(thislang) {
+      if (thislang == "eng")
+      {this.nums = [0,1,2,3,4,5,6,7,8,9];}
+      else if (thislang == "rom")
+      {this.nums = ['zero', 'unu', 'doi', 'trei', 'patru', 'cinci', 'şase', 'şapte', 'opt', 'noua']
+;}
+else if (thislang == "zh")
+      {this.nums = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十']
+;}
+    },
     
     
     
@@ -177,7 +191,10 @@ export default {
     },
     checkmultiply: function() {
       if (this.multiply == this.question) {
-      this.iscorrect = "yes";
+      this.iscorrect = "Bravo";
+      this.getquestion();
+
+
       }
       else {
         this.iscorrect = "no";
@@ -186,6 +203,7 @@ export default {
     checkadd: function() {
       if (this.add == this.question) {
       this.iscorrect = "Bravo";
+      this.getquestion();
       }
       else {
         this.iscorrect = "Try again!";
@@ -194,9 +212,18 @@ export default {
     },
     makewordlist: function() {
       if (this.wordsinput != ""){
+        if(this.wordsinput.includes(" ")){
+          this.wordlist = this.wordsinput.split(" ");
+        }
+        // japanese space
+        else if(this.wordsinput.inclues("　")){
+          this.wordlist = this.wordsinput.split("　");
+
+        }
 
           
-          this.wordlist = this.wordsinput.split(" ");
+          
+
           this.wordsinput = ""
       }
                 this.selection = this.wordlist[Math.floor(Math.random() * this.wordlist.length)]
@@ -250,5 +277,6 @@ computed: {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 button {font-size: 20px;}
+.small {font-size: 12px;}
 
 </style>
